@@ -7,7 +7,8 @@
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.1",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "validator": "^13.5.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -26,8 +27,8 @@
   },
   "scripts": {
     "lint": "eslint models/** routes/** app.js --no-error-on-unmatched-pattern",
-    "lint:fix": "eslint --fix models/** routes/** app.js  --no-error-on-unmatched-pattern",
-    "prettier": "prettier \"**/*.{json,yaml,md}\"  --check",
+    "lint:fix": "eslint --fix models/** routes/** app.js --no-error-on-unmatched-pattern",
+    "prettier": "prettier \"**/*.{json,yaml,md}\" --check",
     "prettier:fix": "prettier \"**/*.{json,yaml,md}\" --write"
   },
   "lint-staged": {
