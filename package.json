@@ -31,7 +31,7 @@
     "prettier:fix": "prettier \"**/*.{json,yaml,md}\" --write"
   },
   "lint-staged": {
-    "**/*.{json,yaml,md}": "prettier --check",
+    "**/*.{json,yaml,md}": "prettier \"**/*.{json,yaml,md}\"  --check",
     "**/*.{js,jsx}": "eslint"
   },
   "husky": {

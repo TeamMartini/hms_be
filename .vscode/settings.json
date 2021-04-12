@@ -9,7 +9,7 @@
     "**/README.md": true,
     "**/.gitignore": true
   },
-  "javascript.format.semicolons": "insert",
-  "prettier.semi": true,
+  "javascript.format.semicolons": "remove",
+  "prettier.semi": false,
   "files.eol": "\n"
 }
