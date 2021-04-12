@@ -9,8 +9,8 @@
     "**/README.md": true,
     "**/.gitignore": true
   },
-  "javascript.format.semicolons": "remove",
-  "prettier.semi": false,
+  "javascript.format.semicolons": "insert",
+  "prettier.semi": true,
   "files.eol": "\n",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {

@@ -6,7 +6,7 @@ module.exports = {
   },
   extends: ['airbnb/base'],
   rules: {
-    semi: [2, 'never'],
+    // semi: [2, 'never'],
     'arrow-parens': ['warn', 'as-needed'],
     // 화살표 함수의 파라미터가 하나일때 괄호 생략
     'no-unused-vars': ['off'],
@@ -19,4 +19,4 @@ module.exports = {
     // camelCase를 따르는게 좋긴 하지만 `_`를 어쩔수 없이 써야하는 상황을 위해(가령 백엔드가 mongoDB)
     'import/no-extraneous-dependencies': ['off'],
   },
-}
+};
