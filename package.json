@@ -26,8 +26,8 @@
     "supertest": "^6.1.3"
   },
   "scripts": {
-    "lint": "eslint models/** routes/** app.js --no-error-on-unmatched-pattern",
-    "lint:fix": "eslint --fix models/** routes/** app.js --no-error-on-unmatched-pattern",
+    "lint": "eslint **/*.{js} models/** routes/** app.js --no-error-on-unmatched-pattern",
+    "lint:fix": "eslint **/*.{js} --fix models/** routes/** app.js --no-error-on-unmatched-pattern",
     "prettier": "prettier \"**/*.{json,yaml,md}\" --check",
     "prettier:fix": "prettier \"**/*.{json,yaml,md}\" --write"
   },

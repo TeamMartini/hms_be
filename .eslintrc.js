@@ -6,7 +6,8 @@ module.exports = {
   },
   extends: ['airbnb/base'],
   rules: {
-    'arrow-parens': ['warn', 'as-needed'],
+    'consistent-return': ['off'],
+    'arrow-parens': ['error', 'always'],
     // 화살표 함수의 파라미터가 하나일때 괄호 생략
     'no-unused-vars': ['off'],
     // 사용하지 않는 변수가 있을때 빌드에러가 나던 규칙 해제
