@@ -6,6 +6,7 @@ module.exports = {
   },
   extends: ['airbnb/base'],
   rules: {
+    'func-names': ['off'],
     'consistent-return': ['off'],
     'arrow-parens': ['error', 'always'],
     // 화살표 함수의 파라미터가 하나일때 괄호 생략

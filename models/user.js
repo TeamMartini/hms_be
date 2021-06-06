@@ -10,23 +10,23 @@ const User = new Schema({
   },
 });
 
-User.statics.create = function e(username, password) {
+User.statics.create = function (username, password) {
   const encrypted = crypto.createHmac('sha1', 'SECRET').update(password).digest('base64');
   const user = new this({
     username,
-    encrypted,
+    password: encrypted,
   });
 
   return user.save();
 };
 
-User.statics.findOneByUsername = function e(username) {
+User.statics.findOneByUsername = function (username) {
   return this.findOne({
     username,
   }).exec();
 };
 
-User.methods.verify = function e(password) {
+User.methods.verify = function (password) {
   const encrypted = crypto.createHmac('sha1', 'SECRET').update(password).digest('base64');
   return this.password === encrypted;
 };
