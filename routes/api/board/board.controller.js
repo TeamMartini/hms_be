@@ -39,9 +39,9 @@ exports.createBoard = (req, res) => {
 };
 
 exports.getBoardInfo = (req, res) => {
-  const { title } = req.body;
+  const { postNumber } = req.query;
 
-  Board.findOneByTitle(title).then((board) => {
+  Board.findOneByNumber(postNumber).then((board) => {
     res.json({ board });
   });
 };

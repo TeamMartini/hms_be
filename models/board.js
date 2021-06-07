@@ -29,6 +29,12 @@ Board.statics.findOneByTitle = function (title) {
   }).exec();
 };
 
+Board.statics.findOneByNumber = function (postNumber) {
+  return this.findOne({
+    postNumber,
+  }).exec();
+};
+
 Board.statics.listBoard = function () {
   return this.find({}).exec();
 };
