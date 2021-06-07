@@ -4,15 +4,17 @@ const Board = new Schema({
   title: String,
   contents: String,
   division: String,
-  pageNumber: Number,
+  postNumber: {
+    type: Number,
+    default: 1,
+  },
 });
 
-Board.statics.create = function (title, contents, division, pageNumber) {
+Board.statics.create = function (title, contents, division) {
   const board = new this({
     title,
     contents,
     division,
-    pageNumber,
   });
 
   return board.save();
@@ -26,6 +28,12 @@ Board.statics.findOneByTitle = function (title) {
 
 Board.statics.listBoard = function () {
   return this.find({}).exec();
+};
+
+Board.methods.assignNumber = async function (number) {
+  this.postNumber = number;
+  await this.save();
+  return number;
 };
 
 module.exports = model('Board', Board);

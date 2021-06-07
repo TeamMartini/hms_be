@@ -4,6 +4,7 @@ exports.createBoard = (req, res) => {
   const {
     title, contents, division, pageNumber,
   } = req.body;
+  let _board = null;
 
   const create = (board) => {
     if (board) {
@@ -12,13 +13,17 @@ exports.createBoard = (req, res) => {
     return Board.create(title, contents, division, pageNumber);
   };
 
-  const respond = (board) => {
+  const count = (board) => {
+    _board = board;
+    return Board.countDocuments({}).exec();
+  };
+
+  const assign = (_count) => _board.assignNumber(_count);
+
+  const respond = (_count) => {
     res.json({
       message: 'board created successfully',
-      title,
-      contents,
-      division,
-      pageNumber,
+      count: _count,
     });
   };
 
@@ -28,7 +33,9 @@ exports.createBoard = (req, res) => {
     });
   };
 
-  Board.findOneByTitle(title).then(create).then(respond).catch(onError);
+  Board.findOneByTitle(title).then(create).then(count).then(assign)
+    .then(respond)
+    .catch(onError);
 };
 
 exports.getBoardInfo = (req, res) => {
