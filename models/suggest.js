@@ -8,7 +8,7 @@ const Suggest = new Schema({
   checked: Boolean,
 });
 
-Suggest.statics.create = function (title, contact = '', file = '', content = '') {
+Suggest.statics.createSuggest = function (title, contact = '', file = '', content = '') {
   const suggest = new this({
     title,
     contact,
@@ -26,3 +26,5 @@ Suggest.statics.listSuggest = function (check = 0) {
   }
   return this.find(query).exec();
 };
+
+module.exports = model('Suggest', Suggest);
