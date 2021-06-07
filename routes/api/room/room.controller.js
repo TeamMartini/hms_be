@@ -32,12 +32,12 @@ exports.getRoomInfo = (req, res) => {
   const { name } = req.body;
 
   Room.findOneByName(name).then((room) => {
-    res.json(room);
+    res.json({ room });
   });
 };
 
 exports.listRooms = (req, res) => {
   Room.listRooms().then((rooms) => {
-    res.json(rooms);
+    res.json({ rooms });
   });
 };

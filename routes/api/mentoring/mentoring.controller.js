@@ -35,12 +35,12 @@ exports.getReservationInfo = (req, res) => {
   const { lender } = req.body;
 
   Mentoring.findOneByLender(lender).then((mentoring) => {
-    res.json(mentoring);
+    res.json({ mentoring });
   });
 };
 
 exports.listReservation = (req, res) => {
   Mentoring.listReservation.then((mentoring) => {
-    res.json(mentoring);
+    res.json({ mentoring });
   });
 };

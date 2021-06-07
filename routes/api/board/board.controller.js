@@ -35,12 +35,12 @@ exports.getBoardInfo = (req, res) => {
   const { title } = req.body;
 
   Board.findOneByTitle(title).then((board) => {
-    res.json(board);
+    res.json({ board });
   });
 };
 
 exports.listBoard = (req, res) => {
   Board.listBoard.then((board) => {
-    res.json(board);
+    res.json({ board });
   });
 };
