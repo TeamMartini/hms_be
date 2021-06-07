@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../../../models/user');
 
 exports.register = (req, res) => {
-  const { username, password } = req.body;
+  const { username, name, password } = req.body;
   console.log(req);
   let newUser = null;
 
@@ -10,7 +10,7 @@ exports.register = (req, res) => {
     if (user) {
       throw new Error('username exists');
     } else {
-      return User.create(username, password);
+      return User.create(username, name, password);
     }
   };
 
@@ -31,6 +31,7 @@ exports.register = (req, res) => {
       message: 'registered successfully',
       admin,
       username,
+      name,
     });
   };
 
