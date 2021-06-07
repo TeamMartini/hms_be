@@ -4,14 +4,16 @@ const authMiddleware = (req, res, next) => {
   const token = req.headers['x-access-token'] || req.query.token;
 
   if (!token) {
-    return res.status(403).json({
+    return res.json({
+      code: 403,
       success: false,
       message: 'not logged in',
     });
   }
 
   const onError = (error) => {
-    res.status(403).json({
+    res.json({
+      code: 403,
       success: false,
       message: error.message,
     });

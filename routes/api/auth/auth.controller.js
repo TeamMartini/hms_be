@@ -48,7 +48,6 @@ exports.register = (req, res) => {
 };
 
 exports.login = (req, res) => {
-  console.log(req.headers);
   const { username, password } = req.body;
   const secret = req.app.get('jwt-secret');
   const check = (user) => {
