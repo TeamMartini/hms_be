@@ -35,7 +35,8 @@ exports.register = (req, res) => {
   };
 
   const onError = (error) => {
-    res.status(409).json({
+    res.json({
+      code: 409,
       message: error.message,
     });
   };
@@ -47,6 +48,7 @@ exports.register = (req, res) => {
 };
 
 exports.login = (req, res) => {
+  console.log(req.headers);
   const { username, password } = req.body;
   const secret = req.app.get('jwt-secret');
   const check = (user) => {
@@ -86,7 +88,8 @@ exports.login = (req, res) => {
   };
 
   const onError = (error) => {
-    res.status(403).json({
+    res.json({
+      code: 403,
       message: error.message,
     });
   };
