@@ -47,7 +47,7 @@ exports.getBoardInfo = (req, res) => {
 };
 
 exports.listBoard = (req, res) => {
-  Board.listBoard.then((board) => {
+  Board.listBoard().then((board) => {
     res.json({ board });
   });
 };
