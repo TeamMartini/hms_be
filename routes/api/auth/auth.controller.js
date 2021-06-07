@@ -3,7 +3,7 @@ const User = require('../../../models/user');
 
 exports.register = (req, res) => {
   const { username, password } = req.body;
-  console.log(req.body);
+  console.log(req);
   let newUser = null;
 
   const create = (user) => {
@@ -41,7 +41,6 @@ exports.register = (req, res) => {
     });
   };
 
-  console.log(username, password, User.findOneByUsername(username));
   User.findOneByUsername(username).then(create).then(count).then(assign)
     .then(respond)
     .catch(onError);

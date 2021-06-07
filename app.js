@@ -8,9 +8,9 @@ const { error400Middleware, error404Middleware } = require('./middlewares/error'
 const port = process.env.PORT || 3003;
 const app = express();
 
-app.use(express.json());
 app.use(cors());
 app.use(error400Middleware);
+app.use(express.json());
 app.use(express.urlencoded({
   extended: true,
 }));
