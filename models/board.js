@@ -1,3 +1,4 @@
+const moment = require('moment');
 const { Schema, model } = require('mongoose');
 
 const Board = new Schema({
@@ -8,6 +9,7 @@ const Board = new Schema({
     type: Number,
     default: 1,
   },
+  date: String,
 });
 
 Board.statics.create = function (title, contents, division) {
@@ -15,6 +17,7 @@ Board.statics.create = function (title, contents, division) {
     title,
     contents,
     division,
+    date: moment().format('YYYY-MM-DD'),
   });
 
   return board.save();

@@ -97,8 +97,8 @@ exports.login = (req, res) => {
 };
 
 exports.check = (req, res) => {
-  res.json({
+  User.findOneByUsername(req.decoded.username).then((_user) => res.json({
     success: true,
-    info: req.decoded,
-  });
+    info: { name: _user.name, ...req.decoded },
+  }));
 };
