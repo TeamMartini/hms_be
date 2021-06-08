@@ -3,7 +3,6 @@ const User = require('../../../models/user');
 
 exports.register = (req, res) => {
   const { username, name, password } = req.body;
-  console.log(req);
   let newUser = null;
 
   const create = (user) => {

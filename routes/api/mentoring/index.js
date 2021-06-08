@@ -4,7 +4,10 @@ const controller = require('./mentoring.controller');
 
 router.use('/reservation', authMiddleware);
 router.post('/reservation', controller.reservation);
-router.get('/getReservationInfo', controller.getReservationInfo);
+router.use('/deleteByDate', authMiddleware);
+router.post('/deleteByDate', controller.deleteByDate);
+router.get('/getReservation', controller.getReservation);
+router.get('/getReservationList', controller.getReservationList);
 router.get('/listReservation', controller.listReservation);
 
 module.exports = router;

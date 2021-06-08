@@ -5,13 +5,18 @@ const Mentoring = new Schema({
   lender: String,
   capacity: Number,
   rentalTime: String,
-  rental: { type: Boolean, default: false },
+  date: String,
 });
 
-Mentoring.statics.create = function (lender, roomNumber, capacity, rentalTime) {
+Mentoring.statics.create = async function (lender, roomNumber, capacity, date, rentalTime) {
+  const count = await this.count({ lender }).exec();
+  if (count >= 3) {
+    throw Error('대여는 3개까지만 가능합니다');
+  }
   const mentoring = new this({
     lender,
     roomNumber,
+    date,
     capacity,
     rentalTime,
   });
@@ -19,19 +24,22 @@ Mentoring.statics.create = function (lender, roomNumber, capacity, rentalTime) {
   return mentoring.save();
 };
 
-Mentoring.statics.findOneByLender = function (lender) {
-  return this.findOne({
-    lender,
-  }).exec();
+Mentoring.statics.findByDate = function (date, roomNumber) {
+  return this.find({ date, roomNumber }).exec();
 };
 
-Mentoring.statics.listMentoring = function () {
+Mentoring.statics.findByLender = function (lender) {
+  return this.find({ lender }).exec();
+};
+
+Mentoring.statics.listReservation = function () {
   return this.find({}).exec();
 };
 
-Mentoring.methods.reservation = function e() {
-  this.rental = true;
-  return this.save();
+Mentoring.statics.deleteByDate = function (date, roomNumber, lender, rentalTime) {
+  return this.deleteOne({
+    date, roomNumber, lender, rentalTime,
+  }).exec();
 };
 
 module.exports = model('Mentoring', Mentoring);
