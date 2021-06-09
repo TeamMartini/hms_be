@@ -4,7 +4,7 @@ let db = null;
 
 function mongo() {
   if (db !== null) return db;
-  mongoose.connect('mongodb://hms:,mNd<5R,a6[h!c[m@live.esllo.com:27017/?authSource=hms', {
+  mongoose.connect(process.env.PRODUCTION_MONGO_DB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
